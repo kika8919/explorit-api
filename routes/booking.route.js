@@ -5,15 +5,15 @@ const userController = require("../controllers/usersController");
 const verifyJWT = require("../middleware/verifyJWT");
 
 // Authentication
-router.post("/users/login", userController.userLogin);
+router.post("/login", userController.userLogin);
 
 // Registration
-router.post("/users", userController.registerUser);
+router.post("/register", userController.registerUser);
 
 // Get Current User
-router.get("/user", verifyJWT, userController.getCurrentUser);
+router.get("/", verifyJWT, userController.getCurrentUser);
 
 // Update User
-router.put("/user", verifyJWT, userController.updateUser);
+router.put("/", verifyJWT, userController.updateUser);
 
 module.exports = router;

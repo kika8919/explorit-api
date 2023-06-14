@@ -9,7 +9,6 @@ const corsOptions = require("../config/corsOptions");
 const connectDB = require("../config/dbConnect");
 const mongoose = require("mongoose");
 
-console.log(process.env.NODE_ENV);
 connectDB();
 
 app.use(cors(corsOptions));

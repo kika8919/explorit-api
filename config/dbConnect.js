@@ -1,4 +1,9 @@
 const mongoose = require('mongoose');
+require("../models/User");
+require("../models/Image")
+require("../models/Location")
+require("../models/Category");
+require("../models/Activity")
 
 const connectDB = async () => {
     try {
