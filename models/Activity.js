@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 const activitySchema = new mongoose.Schema(
   {
-    activityId: { type: String, required: true },
+    // activityId: { type: String, required: true },
     type: { type: String, required: true },
   },
   {

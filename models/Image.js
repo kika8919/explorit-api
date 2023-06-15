@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 const imageSchema = new mongoose.Schema(
   {
-    imageId: { type: String, required: true },
+    // imageId: { type: String, required: true },
     url: { type: String, required: true },
   },
   {

@@ -25,5 +25,5 @@ const addCategory = async (req, res, next) => {
 
 
 module.exports = {
-  getCategories,
+  getCategories,addCategory
 };
