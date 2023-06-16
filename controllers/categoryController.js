@@ -21,11 +21,11 @@ const getLocationsByCategory = async (req, res, next) => {
       path: "locations",
       populate: {
         path: "images",
-        // model: "Image",
+        
       },
       populate: {
         path: "activities",
-        // model: "Activity",
+  
       },
     });
 
