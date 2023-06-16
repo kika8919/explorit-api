@@ -5,6 +5,10 @@ const jwt = require("jsonwebtoken");
 
 const locationSchema = new mongoose.Schema(
   {
+    area: {
+      type: String,
+      required: false,
+    },
     city: {
       type: String,
       required: true,

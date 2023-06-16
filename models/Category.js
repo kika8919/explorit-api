@@ -1,4 +1,3 @@
-
 "use strict";
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
@@ -15,14 +14,12 @@ const categorySchema = new mongoose.Schema(
       required: true,
     },
 
-   
     locations: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Location",
       },
     ],
-    lnglat: { lng: Number, lat: Number },
   },
   {
     timestamps: true,
