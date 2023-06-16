@@ -7,23 +7,37 @@ const bcrypt = require("bcrypt");
 const getCategories = async (req, res, next) => {
   try {
     const categories = await Category.find();
-    return res.json({ categories });
+    return res.json(categories);
   } catch (err) {
     next(err);
   }
 };
 
-const addCategory = async (req, res, next) => {
+const getLocationsByCategory = async (req, res, next) => {
   try {
-    const categories = await Category.find();
-    return res.json({ categories });
+    const category = await Category.findOne({
+      _id: req.params.categoryId,
+    }).populate({
+      path: "locations",
+      populate: [
+        {
+          path: "images",
+          model: "Image",
+        },
+        {
+          path: "activities",
+          model: "Activity",
+        },
+      ],
+    });
+
+    res.json(category);
   } catch (err) {
     next(err);
   }
 };
-
-
 
 module.exports = {
-  getCategories,addCategory
+  getCategories,
+  getLocationsByCategory,
 };
