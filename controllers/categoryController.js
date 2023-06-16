@@ -19,19 +19,17 @@ const getLocationsByCategory = async (req, res, next) => {
       _id: req.params.categoryId,
     }).populate({
       path: "locations",
-      populate: [
-        {
-          path: "images",
-          model: "Image",
-        },
-        {
-          path: "activities",
-          model: "Activity",
-        },
-      ],
+      populate: {
+        path: "images",
+        // model: "Image",
+      },
+      populate: {
+        path: "activities",
+        // model: "Activity",
+      },
     });
 
-    res.json(category);
+    res.json(category.locations);
   } catch (err) {
     next(err);
   }
