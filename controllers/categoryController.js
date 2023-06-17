@@ -17,17 +17,16 @@ const getLocationsByCategory = async (req, res, next) => {
   try {
     const category = await Category.findOne({
       _id: req.params.categoryId,
-    }).populate({
-      path: "locations",
-      populate: {
-        path: "images",
-        
+    }).populate([
+      {
+        path: "locations",
+        populate: { path: "images" },
       },
-      populate: {
-        path: "activities",
-  
+      {
+        path: "locations",
+        populate: { path: "activities" },
       },
-    });
+    ]);
 
     res.json(category.locations);
   } catch (err) {
