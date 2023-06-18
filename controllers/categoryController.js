@@ -1,8 +1,6 @@
 "use strict";
 const { default: mongoose } = require("mongoose");
 const Category = mongoose.model("Category");
-const asyncHandler = require("express-async-handler");
-const bcrypt = require("bcrypt");
 
 const getCategories = async (req, res, next) => {
   try {
