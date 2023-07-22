@@ -5,6 +5,7 @@ require("../models/Location");
 require("../models/Category");
 require("../models/Activity");
 require("../models/Hotel");
+require("../models/Booking");
 
 const connectDB = async () => {
   try {

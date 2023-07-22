@@ -1,19 +1,15 @@
 "use strict";
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/usersController");
 const verifyJWT = require("../middleware/verifyJWT");
+const {
+  bookNow,
+  getBookingsByUserId,
+} = require("../controllers/bookingController");
 
 // Authentication
-router.post("/login", userController.userLogin);
+router.post("/", verifyJWT, bookNow);
 
-// Registration
-router.post("/register", userController.registerUser);
-
-// Get Current User
-router.get("/", verifyJWT, userController.getCurrentUser);
-
-// Update User
-router.put("/", verifyJWT, userController.updateUser);
+router.get("/:userId", verifyJWT, getBookingsByUserId);
 
 module.exports = router;
