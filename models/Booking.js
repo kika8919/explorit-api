@@ -8,13 +8,11 @@ const bookingSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Hotel",
     },
-    user: {
+    userEmail: {
       required: true,
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
     },
-
-    contact: {
+    contactPhoneNumber: {
       type: String,
       required: true,
     },
@@ -23,14 +21,17 @@ const bookingSchema = new mongoose.Schema(
       required: true,
     },
     noOfPeople: {
+      type: Number,
+      required: true,
+    },
+    contactEmail: {
       type: String,
     },
-
-    email: {
+    pricePerNightAtBooking: {
       type: String,
+      required: true,
     },
-
-    pricePerNight: {
+    totalCost: {
       type: String,
       required: true,
     },
