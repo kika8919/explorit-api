@@ -2,13 +2,17 @@
 const { default: mongoose } = require("mongoose");
 const Booking = mongoose.model("Booking");
 
-const getBookingsByUserId = async (req, res, next) => {
+const getBookingsByEmail = async (req, res, next) => {
   try {
-    const bookings = await Booking.find({ user: req.params.userId }).populate([
-      {
-        path: "hotel",
-      },
-    ]);
+    const bookings = await Booking.find({
+      userEmail: req.params.email,
+    }).populate({
+      path: "hotel",
+    });
+    for (let booking of bookings) {
+      booking.populatedHotel = booking.hotel;
+      booking.hotel = booking.hotel._id;
+    }
     return res.json(bookings);
   } catch (err) {
     next(err);
@@ -39,5 +43,5 @@ const bookNow = async (req, res, next) => {
 
 module.exports = {
   bookNow,
-  getBookingsByUserId,
+  getBookingsByEmail,
 };
