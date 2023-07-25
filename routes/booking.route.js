@@ -4,12 +4,12 @@ const router = express.Router();
 const verifyJWT = require("../middleware/verifyJWT");
 const {
   bookNow,
-  getBookingsByUserId,
+  getBookingsByEmail,
 } = require("../controllers/bookingController");
 
 // Authentication
 router.post("/", verifyJWT, bookNow);
 
-router.get("/:userId", verifyJWT, getBookingsByUserId);
+router.get("/:email", verifyJWT, getBookingsByEmail);
 
 module.exports = router;
