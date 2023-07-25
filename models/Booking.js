@@ -35,6 +35,7 @@ const bookingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    populatedHotel: {},
   },
   {
     timestamps: true,
