@@ -4,7 +4,7 @@
   "description": "backend api for xplorit-webapp",
   "main": "api/index.js",
   "scripts": {
-    "start": "node ./api",
+    "start": "node ./api/index.js",
     "dev": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "vercel-build": "echo hello"
