@@ -5,8 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const corsOptions = require("../config/corsOptions");
-const connectDB = require("../config/dbConnect");
+const corsOptions = require("./config/corsOptions");
+const connectDB = require("./config/dbConnect");
 const mongoose = require("mongoose");
 
 connectDB();
@@ -16,7 +16,7 @@ app.use(express.json()); // middleware to parse json
 app.use(cookieParser());
 
 // user routes - for /api/users and /api/user
-app.use("/api", require("../routes"));
+app.use("/api", require("./routes"));
 
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
