@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 
 connectDB();
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json()); // middleware to parse json
 app.use(cookieParser());
 
